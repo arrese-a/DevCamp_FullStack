@@ -1,0 +1,100 @@
+/* spacer to separate exercises*/
+.spacer40 {
+    height: 40px;
+    width: 100%;
+}
+
+/* Grid 1*/
+.gridOne {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: lightgrey;
+}
+
+ /* Grid 2*/
+.gridTwo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+.first-column{
+    background-color: red;
+}
+
+.second-column{
+    background-color: blue;
+}
+
+.third-column{
+    background-color: yellow;
+}
+
+/* Grid 3*/
+.gridThree {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    width: 500px;
+    height: 300px;
+}
+
+.p-section {
+    background-color: lightblue;
+}
+
+.img-section {
+    background-color: lightcoral;
+}
+
+.img-section img{
+    width: 500px;
+    height: 225px;
+    object-fit: cover;
+}
+
+/* Grid 4*/
+.gridFour {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 500px;
+    background-color: green;
+}
+
+#second-row-id {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/*Grid 5*/
+.gridFive {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 500px;
+    background-color: lightgreen;
+}
+
+#second-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#second-row img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Grid 6*/
+.gridSix {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 500px;
+    background-color: lightgray;
+}
+.gridSix i {
+    font-family: "Font Awesome\ 5 Free", Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+.gridSix p{
+    font-family: "Rubik Dirt", serif;
+    font-weight: 400;      
+}
