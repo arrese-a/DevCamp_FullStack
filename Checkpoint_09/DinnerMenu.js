@@ -79,21 +79,25 @@ const cena = [
     }
 ];
 
+
 function getHora(){
-    var hora = prompt('¿A que hora hora quieres el menu? (formato 24 horas, eg. 14:30)');
-    let regex = /^([0-9]|1[0-9]|2[0-3]):([0-5][0-9])$/;
+        var repetir = true;
+        var hora = prompt('¿A que hora hora quieres el menu? (formato 24 horas, eg. 14:30)');
+        let regex = /^(?:0?[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
 
-    while (!regex.test(hora)) {
-        var hora = prompt('La hora introducida no es válida.\n Por favor, introduzca una hora válida (formato 24 horas, eg. 14:30)');
-    }
-    const [horas, ] = hora.split(":").map(Number);
+        if (!regex.test(hora)) {
+            alert('La hora introducida no es válida.\n Por favor, introduzca una hora válida');
+            getHora();
+        }
+        const [horas, minutos] = hora.split(":").map(Number);
 
-    if (horas < 6 || horas >= 23){
-        var hora = prompt('Solo se ofrecen menus de 6:00 a 23:00.\n Por favor, introduzca otra hora (formato 24 horas, eg. 14:30)');
-    }
-    if (horas >= 6 && horas < 12) return desayuno;
-    if (horas >= 12 && horas < 18) return comida;
-    return cena
+        if (horas < 6 || horas > 23 || (horas === 23 && minutos > 0)){
+            alert('Solo se ofrecen menus de 6:00 a 23:00.\n Por favor, introduzca otra hora');
+            getHora();
+        }
+        if (horas >= 6 && horas < 11) { repetir = false; return desayuno;}
+        if (horas >= 11 && horas < 18){ repetir = false;  return comida;}
+        return cena
 }
 
 function selectMenu(menu){
@@ -107,24 +111,35 @@ function selectMenu(menu){
             opciones.push((`\n ${plato.num}. ${plato.name} ........ ${plato.price} €`));
         });
 
-        var printText = `Seleccione ${tipoPlato.type}:\n ${opciones.join("")}`;
-        var errorText = "";
         let repetir = true;
         while(repetir == true){
-            let plato =prompt(errorText + printText);
+            let plato = prompt(`Seleccione ${tipoPlato.type}:\n ${opciones.join("")}`);
             var op = 1;
             for (let opcion of tipoPlato.options) {
                 if (opcion.name.toLowerCase() === plato.toLowerCase() || opcion.num === plato ) {
                     repetir = false;
+                    alert(returnCorrecto());
                     platosSeleccionados.push(plato);
                 }
                 op += 1;
             }
-            errorText = ("El plato introducido es incorrecto, por favor ponga el nombre o el número del plato correctamente \n");
+            if (repetir == true) {
+                alert("El plato introducido es incorrecto, por favor ponga el nombre o el número del plato correctamente \n");
+            }
         }
     };
     return(platosSeleccionados);
 };
+
+function returnCorrecto(){
+    const frases = ["¡Has elegido la especialidad de la casa!", 
+                    "¡Excelente elección!",
+                    "¡Vamos a cocinar!",
+                    "¡Has elegido un plato delicioso!"
+    ];
+    return _.sample(frases);
+}
+
 
 function printRecibo(tipoMenu, platosSeleccionados){
     var strRecibo = 'Recibo: \n ____________________ \n';
