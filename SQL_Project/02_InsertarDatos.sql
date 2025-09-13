@@ -1,0 +1,182 @@
+-- Insertar datos en tablas
+-- ---------------------------------------------------------------------------------------------------
+USE `UniversityProject`;
+--
+-- Datos tabla professors
+--
+LOCK TABLES `professors` WRITE;
+INSERT INTO `professors` (professor_name, professor_surname, professor_email) VALUES
+('Itziar', 'Larrañaga', 'ilarranaga@gmail.com'),
+('Mikel', 'Esnaola', 'mesnaola@gmail.com'),
+('Gorka', 'Zubizarreta', 'gzubizarreta@gmail.com'),
+('Miren','Azkona', 'mazkona@gmail.com' ),
+('Josune', 'Ameztoi', 'mameztoi@gmail.com'), 
+('Zigor','Gaztañaga', 'zgaztanaga@gmail.com');
+UNLOCK TABLES;
+
+--
+-- Datos tabla students
+--
+LOCK TABLES `students` WRITE;
+-- Estudiantes
+INSERT INTO `students` (student_name, student_surname, student_email) VALUES
+('Ane', 'Calbano', 'anecalbano@gmail.com'),
+('Itsaso', 'Lopez', 'itsasolopez@gmail.com'),
+('Jone', 'Iztueta', 'joneiztueta@gmail.com'),
+('Iker', 'Martinez', 'ikermartinez@gmail.com'),
+('Julen', 'Gonzalez', 'julengonzalez@gmail.com'),
+('Mikel', 'Irastorza', 'mikelirastorza@gmail.com'),
+('Naroa', 'Maiz', 'naroamaiz@gmail.com'),
+('Aitor', 'Etxebarria', 'aitor.etxebarria@gmail.com'),
+('Iker', 'Agirre', 'iker.agirre@gmail.com'),
+('Unai', 'Goikoetxea', 'unai.goikoetxea@gmail.com'),
+('Asier', 'Arrieta', 'asier.arrieta@gmail.com'),
+('Mikel', 'Elizondo', 'mikel.elizondo@gmail.com'),
+('Jon', 'Zabala', 'jon.zabala@gmail.com'),
+('Gaizka', 'Mendizabal', 'gaizka.mendizabal@gmail.com'),
+('Ander', 'Olabarria', 'ander.olabarria@gmail.com'),
+('Xabier', 'Urkizu', 'xabier.urkizu@gmail.com'),
+('Beñat', 'Altuna', 'benat.altuna@gmail.com'),
+('Maialen', 'Echeverria', 'maialen.echeverria@gmail.com'),
+('Ane', 'Larrinaga', 'ane.larrinaga@gmail.com'),
+('Nerea', 'Zubizarreta', 'nerea.zubizarreta@gmail.com'),
+('Irati', 'Berasategi', 'irati.berasategi@gmail.com'),
+('Leire', 'Sarasola', 'leire.sarasola@gmail.com'),
+('Amaia', 'Otegi', 'amaia.otegi@gmail.com'),
+('Maddi', 'Landaburu', 'maddi.landaburu@gmail.com'),
+('June', 'Azkue', 'june.azkue@gmail.com'),
+('Nahikari', 'Aldazabal', 'nahikari.aldazabal@gmail.com'),
+('Uxue', 'Etxaniz', 'uxue.etxaniz@gmail.com');
+UNLOCK TABLES;
+
+--
+-- Datos tabla courses
+--
+LOCK TABLES `courses` WRITE;
+INSERT INTO `courses` (course_name, professor_id) VALUES
+('Matemática', 1),
+('Quimica', 2),
+('Fisica', 2),
+('Filosofía', 3),
+('Dibujo', 4),
+('Ingles',5),
+('Euskera',5),
+('Tecnología',6),
+('Historia',3),
+('Programación',6);
+UNLOCK TABLES;
+
+--
+-- Datos tabla grades
+--
+LOCK TABLES `grades` WRITE;
+INSERT INTO `grades` (student_id, course_id, grade) VALUES
+(1, 1, 7),
+(1, 2, 5),
+(1, 3, 6),
+(1, 4, 8),
+(2, 2, 9),
+(2, 3, 7),
+(2, 4, 6),
+(2, 5, 8),
+(3, 3, 5),
+(3, 4, 6),
+(3, 5, 7),
+(3, 6, 9),
+(4, 4, 8),
+(4, 5, 7),
+(4, 6, 6),
+(4, 7, 9),
+(5, 5, 6),
+(5, 6, 7),
+(5, 7, 8),
+(5, 8, 5),
+(6, 6, 9),
+(6, 7, 8),
+(6, 8, 7),
+(6, 9, 5),
+(7, 7, 6),
+(7, 8, 9),
+(7, 9, 5),
+(7, 10, 6),
+(8, 8, 7),
+(8, 9, 6),
+(8, 10, 9),
+(8, 1, 7),
+(9, 9, 8),
+(9, 10, 7),
+(9, 1, 5),
+(9, 2, 6),
+(10, 10, 9),
+(10, 1, 7),
+(10, 2, 6),
+(10, 3, 8),
+(11, 1, 8),
+(11, 2, 6),
+(11, 3, 7),
+(11, 4, 9),
+(12, 2, 7),
+(12, 3, 8),
+(12, 4, 6),
+(12, 5, 5),
+(13, 3, 6),
+(13, 4, 7),
+(13, 5, 8),
+(13, 6, 5),
+(14, 4, 7),
+(14, 5, 9),
+(14, 6, 8),
+(14, 7, 6),
+(15, 5, 8),
+(15, 6, 7),
+(15, 7, 6),
+(15, 8, 9),
+(16, 6, 5),
+(16, 7, 8),
+(16, 8, 7),
+(16, 9, 6),
+(17, 7, 9),
+(17, 8, 5),
+(17, 9, 7),
+(17, 10, 8),
+(18, 8, 6),
+(18, 9, 9),
+(18, 10, 7),
+(18, 1, 8),
+(19, 9, 5),
+(19, 10, 7),
+(19, 1, 6),
+(19, 2, 9),
+(20, 10, 6),
+(20, 1, 9),
+(20, 2, 7),
+(20, 3, 5),
+(21, 1, 8),
+(21, 2, 9),
+(21, 3, 6),
+(21, 4, 7),
+(22, 2, 7),
+(22, 3, 5),
+(22, 4, 9),
+(22, 5, 8),
+(23, 3, 8),
+(23, 4, 6),
+(23, 5, 7),
+(23, 6, 5),
+(24, 4, 9),
+(24, 5, 8),
+(24, 6, 7),
+(24, 7, 6),
+(25, 5, 7),
+(25, 6, 6),
+(25, 7, 9),
+(25, 8, 8),
+(26, 6, 5),
+(26, 7, 8),
+(26, 8, 7),
+(26, 9, 9),
+(27, 7, 6),
+(27, 8, 7),
+(27, 9, 8),
+(27, 10, 9);
+UNLOCK TABLES;
